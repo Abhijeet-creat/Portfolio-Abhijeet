@@ -1,0 +1,606 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+@import "tailwindcss";
+
+/* =========================================================
+   ABHIJEET PORTFOLIO — EDITORIAL DESIGN SYSTEM
+   ========================================================= */
+
+:root {
+  --paper: #f2efe8;
+  --ink: #171717;
+  --orange: #e4572e;
+  --olive: #6b705c;
+  --muted: #8c887d;
+
+  --border: rgba(23, 23, 23, 0.12);
+  --border-strong: rgba(23, 23, 23, 0.2);
+}
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
+html {
+  scroll-behavior: smooth;
+  background: var(--paper);
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: var(--orange);
+  color: var(--paper);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+.font-display {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.font-mono {
+  font-family: "DM Mono", monospace;
+}
+
+/* =========================================================
+   EDITORIAL UTILITIES
+   ========================================================= */
+
+.editorial-border {
+  border-color: var(--border);
+}
+
+.editorial-muted {
+  color: var(--muted);
+}
+
+.editorial-orange {
+  color: var(--orange);
+}
+
+/* =========================================================
+   PAPER TEXTURE
+   ========================================================= */
+
+.paper-texture {
+  position: relative;
+}
+
+.paper-texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  opacity: 0.035;
+
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.45'/%3E%3C/svg%3E");
+
+  mix-blend-mode: multiply;
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--paper);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c8c2b6;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--olive);
+}
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
+.hero-primary-button {
+  background: #171717 !important;
+  color: #f2efe8 !important;
+}
+
+.hero-primary-button span,
+.hero-primary-button svg {
+  color: #f2efe8 !important;
+}
+
+.hero-primary-button:hover {
+  background: #e4572e !important;
+  color: #f2efe8 !important;
+}
+
+.hero-primary-button:hover span,
+.hero-primary-button:hover svg {
+  color: #f2efe8 !important;
+}
+
+.hero-secondary-button {
+  background: transparent !important;
+  color: #171717 !important;
+  border-color: rgba(23, 23, 23, 0.15) !important;
+}
+
+.hero-secondary-button:hover {
+  background: #e4572e !important;
+  border-color: #e4572e !important;
+  color: #f2efe8 !important;
+}
+
+.hero-secondary-button:hover span,
+.hero-secondary-button:hover svg {
+  color: #f2efe8 !important;
+}
+
+/* =========================================================
+   SKILL CARDS
+   ========================================================= */
+
+.skill-card {
+  position: relative;
+
+  box-shadow:
+    0 1px 0 rgba(23, 23, 23, 0.04),
+    0 12px 30px rgba(23, 23, 23, 0.035);
+
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.skill-card:hover {
+  border-color: rgba(228, 87, 46, 0.28);
+
+  box-shadow:
+    0 1px 0 rgba(23, 23, 23, 0.05),
+    0 18px 40px rgba(23, 23, 23, 0.06);
+}
+
+/* =========================================================
+   SKILL CARD TECHNICAL GRID
+   ========================================================= */
+
+.skill-card-grid {
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(23, 23, 23, 0.065) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(23, 23, 23, 0.065) 1px,
+      transparent 1px
+    );
+
+  background-size: 24px 24px;
+
+  opacity: 0.9;
+
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 78%,
+    transparent 100%
+  );
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 78%,
+    transparent 100%
+  );
+
+  transition:
+    opacity 0.4s ease,
+    background-size 0.4s ease;
+}
+
+.skill-card:hover .skill-card-grid {
+  opacity: 1;
+  background-size: 22px 22px;
+}
+
+/* =========================================================
+   SKILLS ROW
+   ========================================================= */
+
+.skills-row {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/*
+  Soft fade on the extreme edges.
+  This makes the cards feel like a continuous
+  horizontal track rather than a normal grid.
+*/
+
+.skills-row::before,
+.skills-row::after {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  width: 90px;
+
+  z-index: 20;
+
+  pointer-events: none;
+}
+
+.skills-row::before {
+  left: 0;
+
+  background: linear-gradient(
+    to right,
+    var(--paper),
+    transparent
+  );
+}
+
+.skills-row::after {
+  right: 0;
+
+  background: linear-gradient(
+    to left,
+    var(--paper),
+    transparent
+  );
+}
+
+/* =========================================================
+   SKILLS TRACK
+   ========================================================= */
+
+.skills-track {
+  display: flex;
+
+  width: max-content;
+
+  gap: 20px;
+
+  padding-top: 4px;
+  padding-bottom: 4px;
+
+  /*
+    Continuous movement.
+
+    The track contains duplicated cards,
+    so -50% brings the second copy
+    exactly into the first copy's position.
+  */
+
+  animation: skills-forward 24s linear infinite;
+
+  will-change: transform;
+}
+
+/* =========================================================
+   SECOND ROW
+   ========================================================= */
+
+.skills-track-reverse {
+  animation-name: skills-reverse;
+}
+
+/* =========================================================
+   PAUSE ON HOVER
+   ========================================================= */
+
+.skills-row:hover .skills-track {
+  animation-play-state: paused;
+}
+
+/*
+  Also pause if the newer component
+  uses .skills-marquee instead of .skills-row.
+*/
+
+.skills-marquee:hover .skills-track {
+  animation-play-state: paused;
+}
+
+/* =========================================================
+   SKILLS ANIMATION — ROW 1
+   ========================================================= */
+
+@keyframes skills-forward {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* =========================================================
+   SKILLS ANIMATION — ROW 2
+   ========================================================= */
+
+@keyframes skills-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* =========================================================
+   SKILLS MARQUEE COMPATIBILITY
+   ========================================================= */
+
+.skills-marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/*
+  If Skills.jsx uses:
+  
+  className="skills-track reverse"
+
+  this will still work.
+*/
+
+.skills-track.reverse {
+  animation-name: skills-reverse;
+}
+
+/* =========================================================
+   SKILL CARD HOVER ACCENT
+   ========================================================= */
+
+.skill-card::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 0;
+  height: 3px;
+
+  background: var(--orange);
+
+  transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+
+  z-index: 30;
+}
+
+.skill-card:hover::after {
+  width: 100%;
+}
+
+/* =========================================================
+   SKILL CARD MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .skills-track {
+    gap: 14px;
+
+    animation-duration: 18s;
+  }
+
+  .skills-row::before,
+  .skills-row::after {
+    width: 45px;
+  }
+
+  .skills-marquee::before,
+  .skills-marquee::after {
+    width: 45px;
+  }
+}
+
+/* =========================================================
+   PAPER CRUMPLE
+   ========================================================= */
+
+.paper-crumple {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.paper-crumple-canvas {
+  display: block;
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+}
+
+.paper-crumple-fallback {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: var(--pc-image-width, 60%);
+  height: var(--pc-image-height, 72%);
+
+  user-select: none;
+  pointer-events: none;
+}
+
+.paper-crumple-hit {
+  appearance: none;
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  padding: 0;
+  margin: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  border-radius: 2px;
+
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  cursor: grab;
+
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.paper-crumple-hit[data-held="true"] {
+  cursor: grabbing;
+}
+
+.paper-crumple-hit:focus,
+.paper-crumple-hit:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.paper-crumple-focus {
+  position: absolute;
+
+  bottom: 24px;
+  left: calc(50% - 2px);
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: currentColor;
+
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+.paper-crumple-hit:not([data-pointer="true"]):focus-visible
+  + .paper-crumple-focus {
+  opacity: 0.55;
+}
+
+.paper-crumple-hit:disabled {
+  cursor: default;
+}
+
+.paper-crumple-sr {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  padding: 0;
+  margin: -1px;
+
+  overflow: hidden;
+
+  clip: rect(0, 0, 0, 0);
+
+  white-space: nowrap;
+
+  border: 0;
+}
+
+/* =========================================================
+   GENERAL EDITORIAL MOTION
+   ========================================================= */
+
+.editorial-hover {
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.editorial-hover:hover {
+  color: var(--orange);
+}
+
+/* =========================================================
+   RESPONSIVE TYPOGRAPHY
+   ========================================================= */
+
+@media (max-width: 640px) {
+  .font-display {
+    letter-spacing: -0.04em;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY — REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .skills-track {
+    animation: none;
+    transform: translateX(0);
+  }
+}
